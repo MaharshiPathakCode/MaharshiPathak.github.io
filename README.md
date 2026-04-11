@@ -1,2 +1,2 @@
-# MaharshiPathak.github.io
+# maharshipathak.github.io
 Portfolio
