@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maharshi Pathak | Automotive Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --bg2: #111116;
+  --bg3: #1a1a22;
+  --accent: #e8553d;
+  --accent2: #f4a261;
+  --text: #e8e6e3;
+  --text2: #9a9a9a;
+  --text3: #6a6a6a;
+  --card: #14141a;
+  --border: #2a2a33;
+  --glow: rgba(232, 85, 61, 0.15);
+}
+[data-theme="light"] {
+  --bg: #f5f0eb;
+  --bg2: #efe9e2;
+  --bg3: #e6ddd4;
+  --text: #1a1a1a;
+  --text2: #5a5a5a;
+  --text3: #8a8a8a;
+  --card: #ffffff;
+  --border: #d4cdc4;
+  --glow: rgba(232, 85, 61, 0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(20px);
+  background: rgba(10,10,12,0.7);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] nav { background: rgba(245,240,235,0.8); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 1.4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a {
+  color: var(--text2); text-decoration: none; font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+  transition: color 0.3s; position: relative;
+}
+.nav-links a:hover { color: var(--accent); }
+.theme-toggle {
+  background: none; border: 1px solid var(--border); border-radius: 50%;
+  width: 36px; height: 36px; cursor: pointer; color: var(--text2);
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  transition: 0.3s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 8rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+  animation: pulse 6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 0.8fr; gap: 4rem; align-items: center;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent);
+  padding: 0.4rem 1rem; border-radius: 2rem;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease both;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900; line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+.hero h1 span {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-desc {
+  font-size: 1.1rem; color: var(--text2); max-width: 520px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem; border-radius: 4px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--glow); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem; border-radius: 4px;
+  border: 1px solid var(--border); color: var(--text);
+  text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  transition: 0.3s; background: transparent; cursor: pointer;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.hero-photo {
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.hero-photo img {
+  width: 320px; height: 320px; object-fit: cover;
+  border-radius: 20px; border: 3px solid var(--border);
+  position: relative; z-index: 1;
+}
+.hero-photo::after {
+  content: ''; position: absolute;
+  width: 320px; height: 320px; border-radius: 20px;
+  border: 2px solid var(--accent); top: 15px; left: calc(50% - 145px);
+  z-index: 0; opacity: 0.3;
+}
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 2.5rem;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.stat-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900; color: var(--accent);
+}
+.stat-item p { font-size: 0.8rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTIONS */
+section { padding: 6rem 2rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900;
+  margin-bottom: 3rem;
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+}
+.about-text { color: var(--text2); font-size: 1.05rem; }
+.about-text p { margin-bottom: 1rem; }
+.info-cards { display: grid; gap: 1rem; }
+.info-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 1rem;
+  transition: 0.3s;
+}
+.info-card:hover { border-color: var(--accent); transform: translateX(4px); }
+.info-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--glow); display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.info-label { font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; }
+.info-value { font-weight: 600; font-size: 0.95rem; }
+
+/* SKILLS */
+.skills-section { background: var(--bg2); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.skill-category {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 2rem; transition: 0.4s; position: relative; overflow: hidden;
+}
+.skill-category::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0); transition: transform 0.4s; transform-origin: left;
+}
+.skill-category:hover::before { transform: scaleX(1); }
+.skill-category:hover { border-color: var(--accent); transform: translateY(-4px); }
+.skill-cat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 1.2rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill-tag {
+  padding: 0.35rem 0.85rem; border-radius: 6px; font-size: 0.8rem;
+  background: var(--bg3); color: var(--text2); border: 1px solid transparent;
+  font-family: 'JetBrains Mono', monospace; font-weight: 400;
+  transition: 0.3s;
+}
+.skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+/* EXPERIENCE TIMELINE */
+.timeline { position: relative; padding-left: 3rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent2), transparent);
+}
+.timeline-item {
+  position: relative; margin-bottom: 3rem;
+  padding: 2rem; background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; transition: 0.3s;
+}
+.timeline-item:hover { border-color: var(--accent); transform: translateX(4px); }
+.timeline-item::before {
+  content: ''; position: absolute; left: -2.85rem; top: 2.4rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+}
+.tl-header { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+.tl-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; }
+.tl-date {
+  font-size: 0.75rem; color: var(--accent); font-weight: 600;
+  padding: 0.2rem 0.7rem; border: 1px solid var(--accent); border-radius: 2rem;
+  white-space: nowrap;
+}
+.tl-company { color: var(--text2); font-size: 0.9rem; margin-bottom: 0.75rem; }
+.tl-desc { color: var(--text3); font-size: 0.9rem; line-height: 1.7; }
+.tl-desc li { margin-bottom: 0.4rem; list-style: none; padding-left: 1.2rem; position: relative; }
+.tl-desc li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+.tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.tl-tag {
+  padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem;
+  background: var(--glow); color: var(--accent); font-weight: 600;
+}
+
+/* PROJECTS */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
+.project-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; transition: 0.4s; position: relative;
+}
+.project-card:hover { border-color: var(--accent); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.project-thumb {
+  height: 200px; background: linear-gradient(135deg, var(--bg3), var(--bg2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; position: relative; overflow: hidden;
+}
+.project-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, var(--card));
+}
+.project-body { padding: 1.5rem; }
+.project-body h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.6rem; }
+.project-body p { color: var(--text3); font-size: 0.85rem; margin-bottom: 1rem; }
+.project-links { display: flex; gap: 0.75rem; }
+.project-links a {
+  padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.78rem; font-weight: 600;
+  text-decoration: none; transition: 0.3s;
+  border: 1px solid var(--border); color: var(--text2);
+}
+.project-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* EDUCATION */
+.edu-grid { display: grid; gap: 1.5rem; }
+.edu-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 2rem; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
+  transition: 0.3s;
+}
+.edu-card:hover { border-color: var(--accent); }
+.edu-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: #fff;
+}
+.edu-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; }
+.edu-school { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+.edu-date { color: var(--text3); font-size: 0.8rem; margin-bottom: 0.5rem; }
+.edu-details { color: var(--text3); font-size: 0.85rem; }
+
+/* CERTIFICATES */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.cert-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.5rem; transition: 0.3s;
+}
+.cert-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.cert-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+.cert-card p { color: var(--text3); font-size: 0.8rem; }
+.cert-issuer { color: var(--accent); font-weight: 600; font-size: 0.8rem; }
+
+/* CONTACT */
+.contact-section { background: var(--bg2); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
+.contact-info p { color: var(--text2); margin-bottom: 2rem; }
+.contact-links { display: grid; gap: 0.8rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.5rem; border-radius: 12px;
+  background: var(--card); border: 1px solid var(--border);
+  text-decoration: none; color: var(--text); transition: 0.3s;
+}
+.contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
+.contact-link span { color: var(--text3); font-size: 0.85rem; }
+.contact-form { display: grid; gap: 1rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 1rem 1.2rem; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card);
+  color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  transition: 0.3s; outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+.contact-form textarea { min-height: 140px; resize: vertical; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text3); font-size: 0.8rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-photo { order: -1; }
+  .hero-photo img { width: 220px; height: 220px; }
+  .hero-photo::after { width: 220px; height: 220px; left: calc(50% - 120px); }
+  .hero-desc { margin: 0 auto 2rem; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .edu-card { grid-template-columns: 1fr; }
+}
+
+/* HAMBURGER */
+.hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 100%; left: 0; right: 0; background: var(--bg);
+    padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border);
+  }
+}
+
+/* SCROLL ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">MP</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:0.75rem;align-items:center;">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀</button>
+      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Automotive Engineer · ML Enthusiast</div>
+      <h1>Hi, I'm <span>Maharshi Pathak</span></h1>
+      <p class="hero-desc">Master's student in International Automotive Engineering specializing in Vehicle Safety, with hands-on experience in simulation, autonomous driving, and machine learning.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get In Touch ↗</a>
+        <a href="assets/Resume_MaharshiPathak.pdf" class="btn-outline" id="resumeBtn" download>Download Resume</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><h3>4+</h3><p>Years Experience</p></div>
+        <div class="stat-item"><h3>6+</h3><p>Projects</p></div>
+        <div class="stat-item"><h3>30+</h3><p>Team Led</p></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <!-- Replace src with your photo -->
+      <img src="https://via.placeholder.com/320x320/1a1a22/e8553d?text=MP" alt="Maharshi Pathak">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner reveal">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Engineering the Future of Mobility</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an automotive engineer currently completing my Master's at Technische Hochschule Ingolstadt, Germany, focusing on Vehicle Safety. My Master's thesis involves developing a Digital Twin Model for Power Electronics Inverters at IIMo.</p>
+        <p>With a strong foundation in mechanical engineering from Gujarat Technological University and production experience in the Indian automotive industry, I bridge the gap between hardware know-how and cutting-edge software — from FEA and CAD to Python-based deep learning pipelines.</p>
+        <p>Beyond academics, I've led motorsport teams of 30+ members, competed nationally in ATV championships (AIR-9) and eco-vehicle challenges (AIR-3), and continuously upskill in autonomous driving and machine learning.</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div><div class="info-label">Location</div><div class="info-value">Ingolstadt, Germany</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🎓</div>
+          <div><div class="info-label">Degree</div><div class="info-value">M.Sc. Automotive Engineering</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🏆</div>
+          <div><div class="info-label">Achievement</div><div class="info-value">AIR-3 Eco Vehicle Challenge</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌐</div>
+          <div><div class="info-label">Languages</div><div class="info-value">English · German B1 · Hindi · Gujarati</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="section-inner reveal">
+    <div class="section-tag">Technical Skills</div>
+    <h2 class="section-title">Tools & Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3 class="skill-cat-title">Simulation & CAD</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">FLOEFD</span>
+          <span class="skill-tag">AutoCAD</span>
+          <span class="skill-tag">CATIA</span>
+          <span class="skill-tag">Siemens NX</span>
+          <span class="skill-tag">ANSYS</span>
+          <span class="skill-tag">ANSA</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3 class="skill-cat-title">Programming</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Simulink</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Keras</span>
+          <span class="skill-tag">OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3 class="skill-cat-title">Automotive & Robotics</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">ROS 1 / ROS 2</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">CAN / CANoe</span>
+          <span class="skill-tag">CANalyzer</span>
+          <span class="skill-tag">CAPL</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3 class="skill-cat-title">ML & Data Science</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">CNNs</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3 class="skill-cat-title">Tools & PM</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">JIRA</span>
+          <span class="skill-tag">MS Office</span>
+          <span class="skill-tag">Teams</span>
+          <span class="skill-tag">Scrum</span>
+          <span class="skill-tag">ISO 26262</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner reveal">
+    <div class="section-tag">Experience</div>
+    <h2 class="section-title">Professional Journey</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <div class="tl-title">Master Thesis — Digital Twin Model</div>
+          <span class="tl-date">2025 – Present</span>
+        </div>
+        <div class="tl-company">IIMo · Technische Hochschule Ingolstadt</div>
+        <ul class="tl-desc">
+          <li>Developing a Digital Twin Model for Power Electronics Inverter</li>
+          <li>Applying mathematical modelling, simulation, and automotive electronics</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">Digital Twin</span><span class="tl-tag">Power Electronics</span><span class="tl-tag">Simulation</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <div class="tl-title">Automated & Connected Driving Challenges</div>
+          <span class="tl-date">RWTH Aachen</span>
+        </div>
+        <div class="tl-company">RWTH Aachen University</div>
+        <ul class="tl-desc">
+          <li>Developed Python & C++ solutions for real-world automated driving tasks</li>
+          <li>Processed sensor data: camera segmentation, point clouds, object detection</li>
+          <li>Worked on Object Fusion, Tracking, Vehicle Guidance, Connected Driving</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">ROS</span><span class="tl-tag">Python</span><span class="tl-tag">C++</span><span class="tl-tag">Docker</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <div class="tl-title">Production Supervisor</div>
+          <span class="tl-date">08/2021 – 02/2022</span>
+        </div>
+        <div class="tl-company">National Bearing Company · Savli, India</div>
+        <ul class="tl-desc">
+          <li>Inspected grinding processes for Honda, TVS, Royal Enfield</li>
+          <li>Achieved 25% reduction in production time & 30% increase in output quality</li>
+          <li>Initiated R&D on redesigning machine components</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">Production</span><span class="tl-tag">Quality</span><span class="tl-tag">R&D</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <div class="tl-title">Team Leader — Mega-ATV Championship</div>
+          <span class="tl-date">05/2019 – 04/2021</span>
+        </div>
+        <div class="tl-company">Auto Sports India · REDSHOX Racing</div>
+        <ul class="tl-desc">
+          <li>Led a team of 30 for overall vehicle development</li>
+          <li>Managed powertrain, steering, dynamics & suspension — 25% efficiency gain</li>
+          <li>FEA/FEM structural optimization for chassis, sprocket & axle shaft</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">FEA</span><span class="tl-tag">SolidWorks</span><span class="tl-tag">ANSYS</span><span class="tl-tag">Leadership</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <div class="tl-title">Team Leader — Eco Green Vehicle Challenge</div>
+          <span class="tl-date">01/2019 – 03/2019</span>
+        </div>
+        <div class="tl-company">SAEINDIA · LDEC, India</div>
+        <ul class="tl-desc">
+          <li>Led 15-member team to develop an environmentally friendly vehicle</li>
+          <li>Managed chassis, powertrain, steering, dynamics & suspension systems</li>
+          <li>Achieved AIR-3 among 30 national teams</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">SAEINDIA</span><span class="tl-tag">Chassis</span><span class="tl-tag">Powertrain</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--bg2);">
+  <div class="section-inner reveal">
+    <div class="section-tag">Projects</div>
+    <h2 class="section-title">Featured Work</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-thumb">🔥</div>
+        <div class="project-body">
+          <h3>Thermal Analysis — LED Automotive Headlamp</h3>
+          <p>FEA thermal performance analysis of water-cooled LED strips with copper fins using FLOEFD. Investigated fin design variations for cooling optimization.</p>
+          <div class="tl-tags"><span class="tl-tag">FEA</span><span class="tl-tag">FLOEFD</span><span class="tl-tag">CAX</span></div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">📷</div>
+        <div class="project-body">
+          <h3>Camera Sensor & Light Interference</h3>
+          <p>Developed a standardized test system using controllable LED matrices to simulate sunlight conditions for evaluating optical sensors in ADAS. Used MATLAB for sun trajectory prediction.</p>
+          <div class="tl-tags"><span class="tl-tag">MATLAB</span><span class="tl-tag">CARISSMA</span><span class="tl-tag">Sensors</span></div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">⚡</div>
+        <div class="project-body">
+          <h3>Electromagnetic Reciprocating Piston Motor</h3>
+          <p>Bachelor's thesis: designed an electromagnetic piston motor for automotive applications using magnetic materials for a perfect power stroke. Novel engine technology prototype.</p>
+          <div class="tl-tags"><span class="tl-tag">Thesis</span><span class="tl-tag">Electromagnetics</span><span class="tl-tag">Design</span></div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">🚗</div>
+        <div class="project-body">
+          <h3>Self-Driving Car — Deep Learning & CV</h3>
+          <p>Lane, vehicle & pedestrian detection with OpenCV and SVM. Traffic sign classification with CNNs. Built deep neural networks with TensorFlow and Keras.</p>
+          <div class="tl-tags"><span class="tl-tag">TensorFlow</span><span class="tl-tag">OpenCV</span><span class="tl-tag">CNN</span></div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">🏎️</div>
+        <div class="project-body">
+          <h3>REDSHOX — ATV Vehicle Development</h3>
+          <p>End-to-end development of an all-terrain vehicle for national motorsport competition. FEA optimization, powertrain design, and suspension engineering. AIR-9 nationally.</p>
+          <div class="tl-tags"><span class="tl-tag">ANSYS</span><span class="tl-tag">SolidWorks</span><span class="tl-tag">Motorsport</span></div>
+          <div class="project-links" style="margin-top:0.75rem;">
+            <a href="#">Demo ↗</a>
+            <a href="#">Team Page ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">🌱</div>
+        <div class="project-body">
+          <h3>ATOM — Eco Green Vehicle</h3>
+          <p>Environmentally friendly vehicle for SAEINDIA challenge. Led chassis & powertrain development, achieving 45% production improvement and AIR-3 ranking.</p>
+          <div class="tl-tags"><span class="tl-tag">SAEINDIA</span><span class="tl-tag">Eco</span><span class="tl-tag">AIR-3</span></div>
+          <div class="project-links" style="margin-top:0.75rem;">
+            <a href="#">Demo ↗</a>
+            <a href="#">Team Page ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner reveal">
+    <div class="section-tag">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-title">M.Sc. International Automotive Engineering (Vehicle Safety)</div>
+          <div class="edu-school">Technische Hochschule Ingolstadt, Germany</div>
+          <div class="edu-date">Oct 2022 – 2026</div>
+          <div class="edu-details">Signal Processing · Sensor Tech · Vehicle Crash Mechanics · Automotive Radar · ADAS · Mathematical Modelling · Thesis: Digital Twin for Power Electronics Inverter</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-title">B.E. Mechanical Engineering</div>
+          <div class="edu-school">Gujarat Technological University, India</div>
+          <div class="edu-date">2017 – 2021</div>
+          <div class="edu-details">Vehicle Dynamics · Manufacturing · CAD/CAM · Control Engineering · Thermal & Fluid Dynamics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section style="background:var(--bg2);">
+  <div class="section-inner reveal">
+    <div class="section-tag">Certifications</div>
+    <h2 class="section-title">Continuous Learning</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h4>Machine Learning Specialization</h4>
+        <div class="cert-issuer">Stanford Online · DeepLearning.AI</div>
+        <p>Supervised/unsupervised learning, neural networks, scikit-learn, TensorFlow</p>
+      </div>
+      <div class="cert-card">
+        <h4>Autonomous Cars: DL & Computer Vision</h4>
+        <div class="cert-issuer">Udemy</div>
+        <p>Lane & pedestrian detection, CNNs, TensorFlow, OpenCV</p>
+      </div>
+      <div class="cert-card">
+        <h4>Machine Learning A–Z: AI, Python & R</h4>
+        <div class="cert-issuer">Udemy</div>
+        <p>Reinforcement learning, NLP, deep learning, PyTorch, TensorFlow</p>
+      </div>
+      <div class="cert-card">
+        <h4>Mastering CAN Network</h4>
+        <div class="cert-issuer">Udemy</div>
+        <p>CAN 2.0A/B, Vector CANoe, CANalyzer, CAPL programming</p>
+      </div>
+      <div class="cert-card">
+        <h4>ISO 26262 Functional Safety</h4>
+        <div class="cert-issuer">Udemy</div>
+        <p>Safety principles and functional safety in automotive</p>
+      </div>
+      <div class="cert-card">
+        <h4>Programming for Everybody</h4>
+        <div class="cert-issuer">MichiganX</div>
+        <p>Python scripting, functions, and project-based learning</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section>
+  <div class="section-inner reveal">
+    <div class="section-tag">Awards</div>
+    <h2 class="section-title">Competitions & Recognition</h2>
+    <div class="skills-grid">
+      <div class="skill-category" style="border-left: 3px solid var(--accent);">
+        <h3 class="skill-cat-title">🏆 AIR-3 — Eco Green Vehicle Challenge</h3>
+        <p style="color:var(--text3);font-size:0.9rem;">SAEINDIA · 3rd overall among 30 national teams</p>
+      </div>
+      <div class="skill-category" style="border-left: 3px solid var(--accent2);">
+        <h3 class="skill-cat-title">🏁 AIR-9 — Mega-ATV Championship</h3>
+        <p style="color:var(--text3);font-size:0.9rem;">Autosports India · 9th in endurance racing among 100 national teams</p>
+      </div>
+      <div class="skill-category" style="border-left: 3px solid var(--accent);">
+        <h3 class="skill-cat-title">🎤 SAEINDIA College Chairperson</h3>
+        <p style="color:var(--text3);font-size:0.9rem;">Initiated technical club, organized workshops, built a student community</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner reveal">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Have a project or opportunity? I'd love to hear from you.</h3>
+        <p>Whether it's automotive engineering, simulation, machine learning, or motorsport — let's talk.</p>
+        <div class="contact-links">
+          <a href="mailto:maharshi.m.pathak@outlook.com" class="contact-link">
+            <span style="font-size:1.3rem;">✉</span>
+            <div><div class="info-label">Email</div><div class="info-value">maharshi.m.pathak@outlook.com</div></div>
+          </a>
+          <a href="tel:+4917676956937" class="contact-link">
+            <span style="font-size:1.3rem;">📱</span>
+            <div><div class="info-label">Phone</div><div class="info-value">+49 176 76956937</div></div>
+          </a>
+          <a href="https://www.linkedin.com/in/pathakmaharshi/" target="_blank" class="contact-link">
+            <span style="font-size:1.3rem;">💼</span>
+            <div><div class="info-label">LinkedIn</div><div class="info-value">pathakmaharshi</div></div>
+          </a>
+          <a href="https://github.com/MaharshiPathakCode" target="_blank" class="contact-link">
+            <span style="font-size:1.3rem;">🐙</span>
+            <div><div class="info-label">GitHub</div><div class="info-value">MaharshiPathakCode</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your Message"></textarea>
+        <button class="btn-primary" style="width:fit-content;">Send Message ↗</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Maharshi Pathak. Built with passion & precision.</p>
+</footer>
+
+<script>
+// Theme toggle
+function toggleTheme() {
+  const body = document.body;
+  const current = body.getAttribute('data-theme');
+  body.setAttribute('data-theme', current === 'light' ? '' : 'light');
+  document.querySelector('.theme-toggle').textContent = current === 'light' ? '☀' : '🌙';
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth nav close on click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+</script>
+</body>
+</html>
